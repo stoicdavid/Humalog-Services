@@ -12,7 +12,7 @@
 			<%= render 'interface_fields', f: builder   %>
 		<% end %>		
 	</fieldset>
-	<fieldset class="well span7">
+	<fieldset class="well span8">
 			<h2><a name="category"></a>Categories</h2>
 		<%= link_to_add_fields "Add category", f, :categories %>
 		<%= f.simple_fields_for :categories do |builder| %>
@@ -21,7 +21,7 @@
 	</fieldset>
 	<br>
 
-	<fieldset class="well span7">
+	<fieldset class="well span8">
 			<h2><a name="pdf"></a>PDF's'</h2>
 		<%= link_to_add_fields "Add PDF", f, :pdfs %>
 		<%= f.simple_fields_for :pdfs do |builder| %>
