@@ -4,10 +4,10 @@ json.interface_urls @brand.interface, :btn_url, :over_btn_url, :nav_btn_url, :ba
 json.update_interface edit_interface_url(@brand.interface)
 json.number_of_categories @brand.categories.count
 json.categories @brand.categories do |json, category|
-  json.(category, :id, :name)
+  json.(category, :id, :name,:orden)
   json.number_of_slides category.slides.count
   json.category category.slides do |json,slide|
-    json.(slide, :id, :name, :url,:version)
+    json.(slide, :id, :name, :url,:version,:orden)
   end
 end
 json.number_of_studies @brand.pdfs.studies.count
