@@ -1,0 +1,8 @@
+<fieldset class="well span6">
+	<%= f.input :name, :label => "Slide name", :input_html => {:class => 'inline'} %>
+	<%= f.input :version,:collection => 1..5,:as => :radio_buttons, :item_wrapper_class => 'inline' %>	
+	<%= f.input :url, :label => "Slide url" %>
+	<%= f.hidden_field :_destroy%>
+	<%= link_to "remove", '#', class: " offset5 remove_fields" %>
+
+</fieldset>

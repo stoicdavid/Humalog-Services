@@ -1,11 +1,34 @@
-<%= form_for @brand, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
+<%= simple_form_for @brand, :html => { :class => 'form-horizontal' } do |f| %>
+<div class="control-group">
+	
+	<%= f.input :name%>	
+	<%= f.input :url, :wrapper => :prepend, :label => false do %>
+		<%= content_tag :span, "Url", :class => "add-on" %>
+		<%= f.input_field :url %>
+	<% end %>
+	<h2><a name="interface"></a>Interface</h2>
+	<fieldset class"well span7">
+		<%= f.simple_fields_for :interface do |builder| %>
+			<%= render 'interface_fields', f: builder   %>
+		<% end %>		
+	</fieldset>
+	<fieldset class="well span7">
+			<h2><a name="category"></a>Categories</h2>
+		<%= link_to_add_fields "Add category", f, :categories %>
+		<%= f.simple_fields_for :categories do |builder| %>
+			<%= render 'category_fields', f: builder   %>
+		<% end %>
+	</fieldset>
+	<br>
 
+	<fieldset class="well span7">
+			<h2><a name="pdf"></a>PDF's'</h2>
+		<%= link_to_add_fields "Add PDF", f, :pdfs %>
+		<%= f.simple_fields_for :pdfs do |builder| %>
+			<%= render 'pdf_fields', f: builder   %>
+		<% end %>
+	</fieldset>
+</div>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

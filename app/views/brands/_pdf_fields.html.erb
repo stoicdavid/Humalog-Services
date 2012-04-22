@@ -1,0 +1,6 @@
+	<%= f.input :name, :label => "PDF name" %>
+	<%= f.input :pdf_type, :collection => Pdf::TYPES,:prompt => "Choose type..."%>
+	<%= f.input :url, :label => "PDF url" %>	
+	<%= f.hidden_field :_destroy %>
+	<%= link_to "remove", '#', class: "remove_fields offset5 " %><br>
+

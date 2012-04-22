@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  updated_device: false
+  has_opening: false
+  has_closing: false
+  has_studies: false
+  has_ipp: false
+  has_special: 
+  has_references: false
+  brand_id: 1
+  number_of_menus: 1
+  uses_stack_view: false
+  btn_url: MyString
+  over_btn_url: MyString
+  nav_btn_url: MyString
+  backgrounds_url: MyString
+
+two:
+  updated_device: false
+  has_opening: false
+  has_closing: false
+  has_studies: false
+  has_ipp: false
+  has_special: 
+  has_references: false
+  brand_id: 1
+  number_of_menus: 1
+  uses_stack_view: false
+  btn_url: MyString
+  over_btn_url: MyString
+  nav_btn_url: MyString
+  backgrounds_url: MyString

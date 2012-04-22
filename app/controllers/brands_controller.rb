@@ -6,7 +6,6 @@ class BrandsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @brands }
 
     end
   end
@@ -15,18 +14,13 @@ class BrandsController < ApplicationController
   # GET /brands/1.json
   def show
     @brand = Brand.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @brand }
-    end
   end
 
   # GET /brands/new
   # GET /brands/new.json
   def new
     @brand = Brand.new
-
+    @brand.build_interface
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @brand }
@@ -36,6 +30,7 @@ class BrandsController < ApplicationController
   # GET /brands/1/edit
   def edit
     @brand = Brand.find(params[:id])
+    @brand.interface
   end
 
   # POST /brands

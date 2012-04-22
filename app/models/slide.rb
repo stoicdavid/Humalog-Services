@@ -1,3 +1,4 @@
 class Slide < ActiveRecord::Base
-  attr_accessible :name, :version
+  belongs_to :category
+  
 end

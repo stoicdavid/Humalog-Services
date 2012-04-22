@@ -1,10 +1,126 @@
 <%- model_class = @brand.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
-
 <p>
-  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
-  <%= @brand.name %>
+  <h2>Brand name: <%= @brand.name %></h2>
+
+   <h4><%= model_class.human_attribute_name(:url) %>:</h4>
+  <%= @brand.url %><br>
+
+
+<h2>Interface</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Attribute name</th>
+	  <th>Attribute value</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>Has been updated</td>		  
+        <td><%= @brand.interface.updated_device %></td>
+      </tr>
+	  
+      <tr>
+        <td>Has Opening</td>		  
+        <td><%= @brand.interface.has_opening %></td>
+      </tr>
+      <tr>
+        <td>Has Closing</td>		  
+        <td><%= @brand.interface.has_closing %></td>
+      </tr>
+      <tr>
+        <td>Has IPP</td>		  
+        <td><%= @brand.interface.has_ipp %></td>
+      </tr>
+      <tr>
+        <td>Has Special</td>		  
+        <td><%= @brand.interface.has_special %></td>
+		
+      </tr>
+      <tr>
+        <td>Has References</td>		  
+        <td><%= @brand.interface.has_references %></td>
+      </tr>
+      <tr>
+        <td>Number of Menus</td>		  
+        <td><%= @brand.interface.number_of_menus %></td>
+		
+      </tr>
+      <tr>
+        <td>Uses stack view</td>		  
+        <td><%= @brand.interface.uses_stack_view %></td>
+	
+      </tr>
+	  
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Interface elements</th>
+      <th>URL's'</th>
+	</tr>
+    <tr>
+	<td>Background images</td>
+	<td><%= @brand.interface.backgrounds_url %></td>		
+		
+    </tr>
+    <tr>
+	<td>Navigation Buttons URL</td>
+	<td><%= @brand.interface.nav_btn_url %></td>		
+    </tr>
+    <tr>
+	<td >Menu Buttons URL</td>
+	<td><%= @brand.interface.btn_url %></td>		
+		
+    </tr>
+    <tr>
+	<td>Over Menu Buttons URL</td>
+	<td><%= @brand.interface.over_btn_url %></td>		
+		
+    </tr>
+	
+</thead>
+</table>
+
+<h2>Categories</h2>
+  <% for cat in @brand.categories %>
+
+  <strong>Name: </strong> <%= cat.name %><br>
+	  <div class"offset3">
+	  <% for slide in cat.slides %>
+	  <ul>
+	  	Slide: <%= slide.name %>
+		version:<%= slide.version %>
+		</ul>
+	  <% end %>
+	  </div>
+  <% end %>
 </p>
+
+<h2>PDF's'</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>PDF Name</th>
+      <th>Type</th>	  
+      <th>URL's'</th>
+	</tr>
+	<% for pdf in @brand.pdfs %>
+    <tr>
+		<td ><%= pdf.name %></td>
+		<td><%= pdf.pdf_type %></td>		
+		<td><%= pdf.url %></td>		
+    </tr>
+<% end %>
+	
+</thead>
+</table>
+
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

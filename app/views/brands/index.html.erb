@@ -5,7 +5,12 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>No. Categories</th>
+	  <th>No. Menus</th>
+	  <th># Studies</th>	  
+	  <th># IPP's'</th>	  	  
+	  <th># References</th>	  	  	  
+	  <th>Interface updated?</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -14,7 +19,12 @@
       <tr>
         <td><%= link_to brand.id, brand_path(brand) %></td>
         <td><%= brand.name %></td>
-        <td><%=l brand.created_at %></td>
+        <td><%= brand.categories.count %></td>
+		<td><%= brand.interface.number_of_menus %></td>
+		<td><%= brand.pdfs.studies.count %></td>
+		<td><%= brand.pdfs.ipps.count %></td>
+		<td><%= brand.pdfs.references.count %></td>						
+		<td><%= brand.interface.updated_device %></td>		
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_brand_path(brand), :class => 'btn btn-mini' %>

@@ -1,5 +1,6 @@
 HumService::Application.routes.draw do
   resources :brands
+  resources :interfaces
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

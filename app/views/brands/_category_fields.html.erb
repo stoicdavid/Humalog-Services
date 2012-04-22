@@ -1,0 +1,8 @@
+	<%= f.input :name, :label => "Category name" %>
+	<%= f.hidden_field :_destroy %>
+	<%= link_to "remove", '#', class: "remove_fields offset5 " %>
+	<div><%= link_to_add_fields "Add slide", f, :slides%></div>
+	<%= f.simple_fields_for :slides do |s| %>
+		<%= render 'slide_fields', f: s  %>
+
+	<% end %>
