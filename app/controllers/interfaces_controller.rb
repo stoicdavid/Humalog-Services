@@ -1,4 +1,5 @@
 class InterfacesController < ApplicationController
+  protect_from_forgery :except => :update
   def edit
     @interface = Interface.find(params[:id])
   end
